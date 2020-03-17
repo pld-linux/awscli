@@ -8,13 +8,13 @@
 %define		pypi_name	awscli
 Summary:	Universal Command Line Environment for AWS
 Name:		awscli
-Version:	1.15.2
+Version:	1.15.72
 Release:	1
 License:	ASL 2.0 and MIT
 Group:		Applications/Networking
-Source0:	https://pypi.io/packages/source/a/awscli/%{name}-%{version}.tar.gz
-# Source0-md5:	8800e388fd08a96a7b1f2ab478551bc6
-URL:		http://aws.amazon.com/cli
+Source0:	https://files.pythonhosted.org/packages/source/a/awscli/%{name}-%{version}.tar.gz
+# Source0-md5:	11f6e8522fb2771b67cd150b3e891e03
+URL:		https://aws.amazon.com/cli/
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.719
 %if %{with python2}
@@ -36,7 +36,7 @@ Services.
 Summary:	Python 2 package for awscli
 Group:		Libraries/Python
 Requires:	python-PyYAML >= 3.10
-Requires:	python-botocore = 1.9.1
+Requires:	python-botocore >= 1.10.42
 Requires:	python-colorama >= 0.2.5
 Requires:	python-docutils >= 0.10
 Requires:	python-modules
@@ -50,7 +50,7 @@ Python 2 package for awscli.
 Summary:	Python 3 package for awscli
 Group:		Libraries/Python
 Requires:	python3-PyYAML >= 3.10
-Requires:	python3-botocore = 1.9.1
+Requires:	python3-botocore >= 1.10.42
 Requires:	python3-colorama >= 0.2.5
 Requires:	python3-docutils >= 0.10
 Requires:	python3-modules
