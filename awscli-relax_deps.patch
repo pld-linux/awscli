@@ -1,0 +1,32 @@
+diff --color -ur awscli-1.22.21.orig/setup.cfg awscli-1.22.21/setup.cfg
+--- awscli-1.22.21.orig/setup.cfg	2021-12-06 20:07:59.946503200 +0100
++++ awscli-1.22.21/setup.cfg	2021-12-08 01:22:38.979947800 +0100
+@@ -4,10 +4,10 @@
+ [metadata]
+ requires_dist = 
+ 	botocore==1.23.21
+-	docutils>=0.10,<0.16
++	docutils>=0.10
+ 	s3transfer>=0.5.0,<0.6.0
+ 	PyYAML>=3.10,<5.5
+-	colorama>=0.2.5,<0.4.4
++	colorama>=0.2.5
+ 	rsa>=3.1.2,<4.8
+ 
+ [check-manifest]
+diff --color -ur awscli-1.22.21.orig/setup.py awscli-1.22.21/setup.py
+--- awscli-1.22.21.orig/setup.py	2021-12-06 20:07:58.000000000 +0100
++++ awscli-1.22.21/setup.py	2021-12-08 01:22:34.143310251 +0100
+@@ -25,10 +25,10 @@
+ 
+ install_requires = [
+     'botocore==1.23.21',
+-    'docutils>=0.10,<0.16',
++    'docutils>=0.10',
+     's3transfer>=0.5.0,<0.6.0',
+     'PyYAML>=3.10,<5.5',
+-    'colorama>=0.2.5,<0.4.4',
++    'colorama>=0.2.5',
+     'rsa>=3.1.2,<4.8',
+ ]
+ 
