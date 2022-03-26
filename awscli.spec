@@ -4,7 +4,7 @@
 Summary:	Universal Command Line Environment for AWS
 Name:		awscli
 Version:	1.22.68
-Release:	3
+Release:	4
 License:	ASL 2.0 and MIT
 Group:		Applications/Networking
 Source0:	https://files.pythonhosted.org/packages/source/a/awscli/%{name}-%{version}.tar.gz
