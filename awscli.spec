@@ -3,12 +3,12 @@
 %define		pypi_name	awscli
 Summary:	Universal Command Line Environment for AWS
 Name:		awscli
-Version:	1.25.2
+Version:	1.25.42
 Release:	1
 License:	ASL 2.0 and MIT
 Group:		Applications/Networking
 Source0:	https://files.pythonhosted.org/packages/source/a/awscli/%{name}-%{version}.tar.gz
-# Source0-md5:	233e803b9074fcc0907afc75bd00ed6a
+# Source0-md5:	a66b909fd0b26577820ebbaf6096a347
 Patch0:		%{name}-relax_deps.patch
 URL:		https://aws.amazon.com/cli/
 BuildRequires:	rpm-pythonprov
