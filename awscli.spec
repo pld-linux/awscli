@@ -2,19 +2,20 @@
 %define		egg_name	awscli
 %define		pypi_name	awscli
 Summary:	Universal Command Line Environment for AWS
+Summary(pl.UTF-8):	Uniwersalne środowisko linii polecen dla AWS
 Name:		awscli
-Version:	1.25.81
+Version:	1.25.97
 Release:	1
 License:	ASL 2.0 and MIT
 Group:		Applications/Networking
 Source0:	https://files.pythonhosted.org/packages/source/a/awscli/%{name}-%{version}.tar.gz
-# Source0-md5:	b9c7d124430cf8307d7b9bcdf6a997c1
+# Source0-md5:	d6c22af249563d28b471bec4c60be82a
 Patch0:		%{name}-relax_deps.patch
 URL:		https://aws.amazon.com/cli/
+BuildRequires:	python3-modules >= 1:3.7
+BuildRequires:	python3-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.719
-BuildRequires:	python3-modules >= 1:3.6
-BuildRequires:	python3-setuptools
 Requires:	python3-%{pypi_name} = %{version}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -23,26 +24,28 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This package provides a unified command line interface to Amazon Web
 Services.
 
+%description -l pl.UTF-8
+Ten pakiet dostarcza ujednolicony interfejs linii poleceń do usług
+Amazon Web Services.
+
 %package -n python3-%{pypi_name}
 Summary:	Python 3 package for awscli
+Summary(pl.UTF-8):	Pakiet Pythona 3 do awscli
 Group:		Libraries/Python
-Requires:	python3-PyYAML >= 3.10
-Requires:	python3-botocore >= 1.27.2
-Requires:	python3-colorama >= 0.2.5
-Requires:	python3-docutils >= 0.10
 Requires:	python3-modules >= 1:3.6
-Requires:	python3-rsa >= 3.1.2
-Requires:	python3-s3transfer >= 0.6.0
 Obsoletes:	python-awscli < 1.20.40
 
 %description -n python3-%{pypi_name}
 Python 3 package for awscli.
 
+%description -n python3-%{pypi_name} -l pl.UTF-8
+Pakiet Pythona 3 do awscli.
+
 %prep
 %setup -q
 %patch0 -p1
 
-rm -r %{name}.egg-info
+%{__rm} -r %{name}.egg-info
 
 %build
 %py3_build
@@ -52,14 +55,14 @@ rm -rf $RPM_BUILD_ROOT
 %py3_install
 
 # We don't need the Windows CMD script
-rm $RPM_BUILD_ROOT%{_bindir}/aws.cmd
+%{__rm} $RPM_BUILD_ROOT%{_bindir}/aws.cmd
 
 # Fix path and permissions for bash completition
 install -d $RPM_BUILD_ROOT%{bash_compdir}
-mv $RPM_BUILD_ROOT%{_bindir}/aws_bash_completer $RPM_BUILD_ROOT%{bash_compdir}
+%{__mv} $RPM_BUILD_ROOT%{_bindir}/aws_bash_completer $RPM_BUILD_ROOT%{bash_compdir}
 # Fix path and permissions for zsh completition
 install -d $RPM_BUILD_ROOT%{zsh_compdir}
-mv $RPM_BUILD_ROOT%{_bindir}/aws_zsh_completer.sh $RPM_BUILD_ROOT%{zsh_compdir}
+%{__mv} $RPM_BUILD_ROOT%{_bindir}/aws_zsh_completer.sh $RPM_BUILD_ROOT%{zsh_compdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
