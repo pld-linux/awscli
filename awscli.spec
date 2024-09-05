@@ -4,15 +4,15 @@
 Summary:	Universal Command Line Environment for AWS
 Summary(pl.UTF-8):	Uniwersalne środowisko linii polecen dla AWS
 Name:		awscli
-Version:	1.25.97
+Version:	1.33.34
 Release:	1
 License:	ASL 2.0 and MIT
 Group:		Applications/Networking
 Source0:	https://files.pythonhosted.org/packages/source/a/awscli/%{name}-%{version}.tar.gz
-# Source0-md5:	d6c22af249563d28b471bec4c60be82a
+# Source0-md5:	48d39c6a5f150bb4dc4d8556ff9114da
 Patch0:		%{name}-relax_deps.patch
 URL:		https://aws.amazon.com/cli/
-BuildRequires:	python3-modules >= 1:3.7
+BuildRequires:	python3-modules >= 1:3.8
 BuildRequires:	python3-setuptools
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.719
@@ -32,7 +32,7 @@ Amazon Web Services.
 Summary:	Python 3 package for awscli
 Summary(pl.UTF-8):	Pakiet Pythona 3 do awscli
 Group:		Libraries/Python
-Requires:	python3-modules >= 1:3.6
+Requires:	python3-modules >= 1:3.8
 Obsoletes:	python-awscli < 1.20.40
 
 %description -n python3-%{pypi_name}
@@ -57,10 +57,10 @@ rm -rf $RPM_BUILD_ROOT
 # We don't need the Windows CMD script
 %{__rm} $RPM_BUILD_ROOT%{_bindir}/aws.cmd
 
-# Fix path and permissions for bash completition
+# Fix path and permissions for bash completion
 install -d $RPM_BUILD_ROOT%{bash_compdir}
 %{__mv} $RPM_BUILD_ROOT%{_bindir}/aws_bash_completer $RPM_BUILD_ROOT%{bash_compdir}
-# Fix path and permissions for zsh completition
+# Fix path and permissions for zsh completion
 install -d $RPM_BUILD_ROOT%{zsh_compdir}
 %{__mv} $RPM_BUILD_ROOT%{_bindir}/aws_zsh_completer.sh $RPM_BUILD_ROOT%{zsh_compdir}
 
