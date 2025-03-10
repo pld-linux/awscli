@@ -5,7 +5,7 @@ Summary:	Universal Command Line Environment for AWS
 Summary(pl.UTF-8):	Uniwersalne środowisko linii polecen dla AWS
 Name:		awscli
 Version:	1.33.34
-Release:	1
+Release:	
 License:	ASL 2.0 and MIT
 Group:		Applications/Networking
 Source0:	https://files.pythonhosted.org/packages/source/a/awscli/%{name}-%{version}.tar.gz
